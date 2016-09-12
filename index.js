@@ -19,6 +19,7 @@ module.exports = function proxyMiddleware(options) {
 
   return function (req, resp, next) {
     var url = req.url;
+    var host = req.headers.host;
     // You can pass the route within the options, as well
     if (typeof options.route === 'string') {
       if (url === options.route) {
@@ -57,8 +58,12 @@ module.exports = function proxyMiddleware(options) {
       var statusCode = myRes.statusCode
         , headers = myRes.headers
         , location = headers.location;
+
       // Fix the location
-      if (((statusCode > 300 && statusCode < 304) || statusCode === 201) && location && location.indexOf(options.href) > -1) {
+      if (((statusCode > 300 && statusCode < 304) || statusCode === 201) && location) {
+        if (location[0] === '/' && options.href.indexOf(host) > -1) {
+          location = options.href.slice(0, options.href.indexOf(host)) + host + location;
+        }
         // absoulte path
         headers.location = location.replace(options.href, slashJoin('/', slashJoin((options.route || ''), '')));
       }
