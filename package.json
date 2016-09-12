@@ -1,6 +1,6 @@
 {
   "name": "node-proxy-middleware",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "http(s) proxy as connect middleware (Fork by proxy-middleware)",
   "main": "index.js",
   "scripts": {
