@@ -5,7 +5,7 @@
 ```js
 var connect = require('connect');
 var url = require('url');
-var proxy = require('proxy-middleware');
+var proxy = require('node-proxy-middleware');
 
 var app = connect();
 app.use('/api', proxy(url.parse('https://example.com/endpoint')));
