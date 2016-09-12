@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/andrewrk/node-proxy-middleware.png)](http://travis-ci.org/andrewrk/node-proxy-middleware)
+(Fork by [`proxy-middleware`](https://github.com/andrewrk/node-proxy-middleware))
 
 ### Usage:
 
